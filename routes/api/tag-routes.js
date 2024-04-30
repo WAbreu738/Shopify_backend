@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const tags = await Tag.findAll({
       include: Product,
+      through: ProductTag
     })
     res.json(tags)
   } catch (err) {
